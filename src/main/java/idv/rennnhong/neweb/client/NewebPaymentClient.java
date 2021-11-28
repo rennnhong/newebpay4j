@@ -8,6 +8,7 @@ import idv.rennnhong.neweb.http.HttpResult;
 import idv.rennnhong.neweb.payload.Payment;
 import idv.rennnhong.neweb.payload.TradeInfo;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * API調用的Client實作-多功能收款
@@ -35,7 +36,11 @@ public class NewebPaymentClient extends NewebClient<Payment> {
         String s = tradeInfo.toQueryString();
         String aes = AES.Encrypt(s, merchantKey, merchantIv);
 
-        String sha256 = new String(DigestUtils.sha256(merchantKey + aes + merchantIv));
+        String[] strArr = new String[3];
+        strArr[0] = merchantKey;
+        strArr[1] = aes;
+        strArr[2] = merchantIv;
+        String sha256 = new String(DigestUtils.sha256(StringUtils.join(strArr, "&")));
         objectNode.put("MerchantID", payload.getMerchantID());
         objectNode.put("TradeInfo", aes);
         objectNode.put("TradeSha", sha256);
@@ -43,10 +48,9 @@ public class NewebPaymentClient extends NewebClient<Payment> {
 
         HttpResult result = http.post(endpoint, om.writeValueAsString(objectNode));
 
-        if (result.getCode() >= 200 && result.getCode() < 300){
+        if (result.getCode() >= 200 && result.getCode() < 300) {
             callback.success(result.getBody());
-        }
-        else{
+        } else {
             callback.failure(result.getBody());
         }
 
