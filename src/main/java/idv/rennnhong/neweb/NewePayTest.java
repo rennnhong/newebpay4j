@@ -8,13 +8,15 @@ import idv.rennnhong.neweb.http.HttpInvoker;
 import idv.rennnhong.neweb.payload.Payment;
 import idv.rennnhong.neweb.payload.TradeInfo;
 
+import java.util.Date;
+
 public class NewePayTest {
 
-    public static String endpoit = "http://localhost:8080/";
-    public static String merchantId = "MS17361556";
+    public static String endpoit = "https://core.newebpay.com/MPG/mpg_gateway";
+    public static String merchantId = "MS3546495943";
 
-    public static String key = "MCmYlwSGnG1bvT4x7cKPqJSWXuQFjgXd";
-    public static String iv = "C5b72pgzdVZofYGP";
+    public static String key = "BjM4QQpou5RyheE9TyDtkiHjGyNapQqL";
+    public static String iv = "Pz1n48wopEy8QVfC";
 
 
     public static void main(String[] args) throws Exception {
@@ -26,18 +28,21 @@ public class NewePayTest {
 
         Payment payment = new Payment();
         payment.setMerchantID(merchantId);
+
+        String timestamp = Long.toString(new Date().getTime());//時間戳，這邊用來當作訂單編號
+
         TradeInfo tradeInfo = new TradeInfo();
         tradeInfo.setMerchantID(merchantId);
         tradeInfo.setRespondType("JSON");
-        tradeInfo.setTimeStamp("1400137200");
+        tradeInfo.setTimeStamp(timestamp);
         tradeInfo.setVersion("1.6");
-        tradeInfo.setMerchantOrderNo("123456789");
-        tradeInfo.setAmt("1000");
-        tradeInfo.setItemDesc("藍新測試");
-        tradeInfo.setEmail("xxx@gmail.com");
-        tradeInfo.setLoginType("0");
+        tradeInfo.setMerchantOrderNo(timestamp);
+        tradeInfo.setAmt("52");
+        tradeInfo.setItemDesc("TEST");
+        tradeInfo.setEmail("changerui%40gmail.com");
+//        tradeInfo.setLoginType("0");
+
         payment.setTradeInfo(tradeInfo);
-        payment.setMerchantID("1.6");
 
         client.call(payment, new NewebCallback() {
             @Override

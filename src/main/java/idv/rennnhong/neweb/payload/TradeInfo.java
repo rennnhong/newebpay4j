@@ -1,5 +1,6 @@
 package idv.rennnhong.neweb.payload;
 
+import idv.rennnhong.neweb.util.ParamUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class TradeInfo {
 
-    Map<String, String> params = new HashMap<>();
+    Map<String, Object> params = new HashMap<>();
 
     private final static String MerchantID = "MerchantID";
     private final static String RespondType = "RespondType";
@@ -115,17 +116,10 @@ public class TradeInfo {
         params.put(TradeInfo.Amt, getAmt());
         params.put(TradeInfo.ItemDesc, getItemDesc());
         params.put(TradeInfo.Email, getEmail());
-        params.put(TradeInfo.LoginType, getLoginType());
+//        params.put(TradeInfo.LoginType, getLoginType());
 
-        return mapToQueryString(params);
+        return ParamUtils.toKVPair(params);
 
-    }
-
-    private String mapToQueryString(Map<String, String> map) {
-        List<String> collect = map.entrySet().stream()
-                .map(x -> x.getKey() + "=" + x.getValue())
-                .collect(Collectors.toList());
-        return StringUtils.join(collect.toArray(),"&");
     }
 
 

@@ -1,6 +1,9 @@
 package idv.rennnhong.neweb.http;
 
+import idv.rennnhong.neweb.client.NewebPaymentClient;
 import okhttp3.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
@@ -14,6 +17,8 @@ import java.util.Map;
  * Http調用工具類 todo 之後要抽象
  */
 public class HttpInvoker {
+
+    Logger logger = LoggerFactory.getLogger(HttpInvoker.class);
 
     private OkHttpClient client;
 
@@ -31,7 +36,15 @@ public class HttpInvoker {
     }
 
     public HttpResult post(String url, String body) {
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=utf-8"), body);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        logger.info(request.toString());
+//        logger.info(body);
+
         return send(new Request.Builder()
                 .url(url)
                 .post(requestBody)
@@ -43,7 +56,6 @@ public class HttpInvoker {
             HttpResult httpResult = new HttpResult();
             httpResult.setCode(response.code());
             httpResult.setBody(response.body().string());
-            System.out.println(httpResult.toString());
             return httpResult;
         } catch (IOException e) {
             throw new RuntimeException(e);
