@@ -1,4 +1,6 @@
-package idv.rennnhong.neweb.notify;
+package idv.rennnhong.neweb.response.parser;
+
+import idv.rennnhong.neweb.response.TradeInfo;
 
 public interface TradeInfoParsable {
 

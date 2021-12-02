@@ -1,4 +1,4 @@
-package idv.rennnhong.neweb.notify;
+package idv.rennnhong.neweb.response;
 
 public class TradeInfo {
 

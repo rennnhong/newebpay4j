@@ -1,12 +1,11 @@
-package idv.rennnhong.neweb.notify;
+package idv.rennnhong.neweb.response.parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import idv.rennnhong.neweb.PaymentType;
 import idv.rennnhong.neweb.crypto.AES;
-
-import java.util.HashMap;
-import java.util.Map;
+import idv.rennnhong.neweb.response.TradeInfo;
+import idv.rennnhong.neweb.response.TradeInfoResult;
 
 public class TradeInfoParser implements TradeInfoParsable {
 
@@ -19,13 +18,6 @@ public class TradeInfoParser implements TradeInfoParsable {
     private final String merchantID;
     private final String merchantKey;
     private final String merchantIv;
-
-    private Map<PaymentType, TradeInfoResultParsable> parsableMap = new HashMap<>();
-
-
-    {
-        parsableMap.put(PaymentType.WEBATM, new AtmResultParser());
-    }
 
     public TradeInfoParser(String merchantID, String merchantKey, String merchantIv) {
         this.merchantID = merchantID;
@@ -53,8 +45,8 @@ public class TradeInfoParser implements TradeInfoParsable {
         String paymentTypeCode = resultNode.get(FIELD_PaymentType).asText();
         PaymentType paymentType = PaymentType.valueOfCode(paymentTypeCode);
 
-        /*透過paymentType選擇解析器*/
-        TradeInfoResultParsable<TradeInfoResult.ATM> parser = parsableMap.get(paymentType);
+//        /*透過paymentType選擇解析器*/
+        TradeInfoResultParsable<TradeInfoResult.ATM> parser = ResultParserFactory.newParser(paymentType);
 
         TradeInfoResult.ATM tir = parser.parse(resultNode.toString());
 

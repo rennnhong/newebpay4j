@@ -8,6 +8,13 @@ public enum PaymentType {
     private String code;
     private String description;
 
+    public String getCode() {
+        return code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 
     PaymentType(String code, String description) {
         this.code = code;
