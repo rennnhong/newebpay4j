@@ -7,7 +7,7 @@ public class AtmResultParser extends AbstractResultParser<TradeInfoResult.ATM> {
     private static final String FIELD_PayBankCode = "PayBankCode";
     private static final String FIELD_PayerAccount5Code = "PayerAccount5Code";
 
-    public AtmResultParser() {
+    AtmResultParser() {
         super(new TradeInfoResult.ATM());
     }
 
