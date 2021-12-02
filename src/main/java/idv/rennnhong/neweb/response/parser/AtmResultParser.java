@@ -13,8 +13,8 @@ public class AtmResultParser extends AbstractResultParser<TradeInfoResult.ATM> {
 
     @Override
     public void parse(TradeInfoResult.ATM tradeInfoResult) {
-        tradeInfoResult.setPayBankCode(jsonNode.get(FIELD_PayBankCode).asText());
-        tradeInfoResult.setPayerAccount5Code(jsonNode.get(FIELD_PayerAccount5Code).asText());
+        tradeInfoResult.setPayBankCode(getText(FIELD_PayBankCode));
+        tradeInfoResult.setPayerAccount5Code(getText(FIELD_PayerAccount5Code));
     }
 
 }

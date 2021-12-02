@@ -3,6 +3,9 @@ package idv.rennnhong.neweb.response.parser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import idv.rennnhong.neweb.response.TradeInfoResult;
+import idv.rennnhong.neweb.response.exception.FieldNotFoundException;
+
+import java.util.Optional;
 
 public abstract class AbstractResultParser<T extends TradeInfoResult> implements TradeInfoResultParsable<T> {
 
@@ -28,19 +31,35 @@ public abstract class AbstractResultParser<T extends TradeInfoResult> implements
     @Override
     public T parse(String content) throws Exception {
         jsonNode = om.readValue(content, JsonNode.class);
-        tradeInfoResult.setMerchantID(jsonNode.get(FIELD_MerchantID).asText());
-        tradeInfoResult.setAmt(jsonNode.get(FIELD_Amt).asInt());
-        tradeInfoResult.setTradeNo(jsonNode.get(FIELD_TradeNo).asText());
-        tradeInfoResult.setMerchantOrderNo(jsonNode.get(FIELD_MerchantOrderNo).asText());
-        tradeInfoResult.setRespondType(jsonNode.get(FIELD_RespondType).asText());
-        tradeInfoResult.setPayTime(jsonNode.get(FIELD_PayTime).asText());
-        tradeInfoResult.setIp(jsonNode.get(FIELD_IP).asText());
-        tradeInfoResult.setEscrowBank(jsonNode.get(FIELD_EscrowBank).asText());
+        tradeInfoResult.setMerchantID(getText(FIELD_MerchantID));
+        tradeInfoResult.setAmt(getInt(FIELD_Amt));
+        tradeInfoResult.setTradeNo(getText(FIELD_TradeNo));
+        tradeInfoResult.setMerchantOrderNo(getText(FIELD_MerchantOrderNo));
+        tradeInfoResult.setRespondType(getText(FIELD_RespondType));
+        tradeInfoResult.setPayTime(getText(FIELD_PayTime));
+        tradeInfoResult.setIp(getText(FIELD_IP));
+        tradeInfoResult.setEscrowBank(getText(FIELD_EscrowBank));
         parse(tradeInfoResult);
         return tradeInfoResult;
     }
 
     /*繼承的子類解析特定支付方式的參數*/
     public abstract void parse(T tradeInfoResult);
+
+    protected String getText(String fieldName) {
+        JsonNode field = searchField(fieldName);
+        return field.asText();
+    }
+
+    protected Integer getInt(String fieldName) {
+        JsonNode field = searchField(fieldName);
+        return field.asInt();
+    }
+
+    private JsonNode searchField(String fieldName) {
+        Optional<JsonNode> op = Optional.ofNullable(this.jsonNode.get(fieldName));
+        JsonNode field = op.orElseThrow(() -> new FieldNotFoundException(fieldName));
+        return field;
+    }
 
 }
