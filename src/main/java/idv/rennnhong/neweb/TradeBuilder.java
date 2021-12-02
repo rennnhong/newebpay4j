@@ -92,7 +92,7 @@ public class TradeBuilder {
         String tradeInfoContent = this.toQueryString();
         /*將tradeInfo, hashKey, hashIV一起做AES加密*/
         logger.info("encrypt tradeInfo to AES:content={}\nhashKey={}\nhashIV={}", tradeInfoContent, merchantKey, merchantIv);
-        String aes = AES.Encrypt(tradeInfoContent, merchantKey, merchantIv);
+        String aes = AES.encrypt(tradeInfoContent, merchantKey, merchantIv);
         logger.info("tradeInfoAES:{}", aes);
 
         String[] strArr = new String[3];
