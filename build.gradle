@@ -10,8 +10,6 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
     implementation 'commons-codec:commons-codec:1.15'
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
