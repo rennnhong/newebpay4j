@@ -50,7 +50,7 @@ public class AES {
             }
             byte[] raw = sKey.getBytes(StandardCharsets.UTF_8);
             SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             IvParameterSpec iv = new IvParameterSpec(sIv.getBytes());
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
             byte[] original = cipher.doFinal(parseHexStr2Byte(sSrc));
