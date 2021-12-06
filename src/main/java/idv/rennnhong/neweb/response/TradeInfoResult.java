@@ -138,8 +138,202 @@ public abstract class TradeInfoResult {
      * 信用卡支付回傳參數(一次付清、Google Pay、Samaung Pay、國民旅遊卡、銀聯)
      */
     public static class Credit extends TradeInfoResult {
+        private String authBank;
+        private String respondCode;
+        private String auth;
+        private String card6No;
+        private String card4No;
+        private String eci;
+        private String paymentMethod;
+        private int inst;
+        private int instFirst;
+        private int instEach;
+        private int tokenUseStatus;
+        private int redAmt;
+        private int dccCurrencyCode;
+        private float dccAmt;
+        private float dccRate;
+        private float dccMarkup;
+        private float dccCurrency;
+
         public Credit() {
             super(PaymentType.CREDIT);
+        }
+
+        public String getAuthBank() {
+            return authBank;
+        }
+
+        public Credit setAuthBank(String authBank) {
+            this.authBank = authBank;
+            return this;
+        }
+
+        public String getRespondCode() {
+            return respondCode;
+        }
+
+        public Credit setRespondCode(String respondCode) {
+            this.respondCode = respondCode;
+            return this;
+        }
+
+        public String getAuth() {
+            return auth;
+        }
+
+        public Credit setAuth(String auth) {
+            this.auth = auth;
+            return this;
+        }
+
+        public String getCard6No() {
+            return card6No;
+        }
+
+        public Credit setCard6No(String card6No) {
+            this.card6No = card6No;
+            return this;
+        }
+
+        public String getCard4No() {
+            return card4No;
+        }
+
+        public Credit setCard4No(String card4No) {
+            this.card4No = card4No;
+            return this;
+        }
+
+        public String getEci() {
+            return eci;
+        }
+
+        public Credit setEci(String eci) {
+            this.eci = eci;
+            return this;
+        }
+
+        public String getPaymentMethod() {
+            return paymentMethod;
+        }
+
+        public Credit setPaymentMethod(String paymentMethod) {
+            this.paymentMethod = paymentMethod;
+            return this;
+        }
+
+        public int getInst() {
+            return inst;
+        }
+
+        public Credit setInst(int inst) {
+            this.inst = inst;
+            return this;
+        }
+
+        public int getInstFirst() {
+            return instFirst;
+        }
+
+        public Credit setInstFirst(int instFirst) {
+            this.instFirst = instFirst;
+            return this;
+        }
+
+        public int getInstEach() {
+            return instEach;
+        }
+
+        public Credit setInstEach(int instEach) {
+            this.instEach = instEach;
+            return this;
+        }
+
+        public int getTokenUseStatus() {
+            return tokenUseStatus;
+        }
+
+        public Credit setTokenUseStatus(int tokenUseStatus) {
+            this.tokenUseStatus = tokenUseStatus;
+            return this;
+        }
+
+        public int getRedAmt() {
+            return redAmt;
+        }
+
+        public Credit setRedAmt(int redAmt) {
+            this.redAmt = redAmt;
+            return this;
+        }
+
+        public int getDccCurrencyCode() {
+            return dccCurrencyCode;
+        }
+
+        public Credit setDccCurrencyCode(int dccCurrencyCode) {
+            this.dccCurrencyCode = dccCurrencyCode;
+            return this;
+        }
+
+        public float getDccAmt() {
+            return dccAmt;
+        }
+
+        public Credit setDccAmt(float dccAmt) {
+            this.dccAmt = dccAmt;
+            return this;
+        }
+
+        public float getDccRate() {
+            return dccRate;
+        }
+
+        public Credit setDccRate(float dccRate) {
+            this.dccRate = dccRate;
+            return this;
+        }
+
+        public float getDccMarkup() {
+            return dccMarkup;
+        }
+
+        public Credit setDccMarkup(float dccMarkup) {
+            this.dccMarkup = dccMarkup;
+            return this;
+        }
+
+        public float getDccCurrency() {
+            return dccCurrency;
+        }
+
+
+        public Credit setDccCurrency(float dccCurrency) {
+            this.dccCurrency = dccCurrency;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "Credit {authBank='" + authBank + '\'' +
+                    ", respondCode='" + respondCode + '\'' +
+                    ", auth='" + auth + '\'' +
+                    ", card6No='" + card6No + '\'' +
+                    ", card4No='" + card4No + '\'' +
+                    ", eci='" + eci + '\'' +
+                    ", paymentMethod='" + paymentMethod + '\'' +
+                    ", inst=" + inst +
+                    ", instFirst=" + instFirst +
+                    ", instEach=" + instEach +
+                    ", tokenUseStatus=" + tokenUseStatus +
+                    ", redAmt=" + redAmt +
+                    ", dccCurrency_Code=" + dccCurrencyCode +
+                    ", dccAmt=" + dccAmt +
+                    ", dccRate=" + dccRate +
+                    ", dccMarkup=" + dccMarkup +
+                    ", dccCurrency=" + dccCurrency +
+                    "}" + super.toString();
         }
     }
 

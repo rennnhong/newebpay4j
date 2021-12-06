@@ -41,20 +41,23 @@ public class TradeInfoParser implements TradeInfoParsable {
         final String message = rootNode.get(FIELD_Message).asText();
         JsonNode resultNode = rootNode.get(FIELD_Result);
 
-
         String paymentTypeCode = resultNode.get(FIELD_PaymentType).asText();
         PaymentType paymentType = PaymentType.valueOfCode(paymentTypeCode);
-
-//        /*透過paymentType選擇解析器*/
-        TradeInfoResultParsable<TradeInfoResult.ATM> parser = ResultParserFactory.newParser(paymentType);
-
-        TradeInfoResult.ATM tir = parser.parse(resultNode.toString());
-
         TradeInfo ti = new TradeInfo();
-        ti.setStatus(status);
-        ti.setMessage(message);
-        ti.setResult(tir);
-
+//      /*透過paymentType選擇解析器*/
+        if (paymentType.equals(PaymentType.WEBATM)) {
+            TradeInfoResultParsable<TradeInfoResult.ATM> parser = ResultParserFactory.newParser(paymentType);
+            TradeInfoResult.ATM tir = parser.parse(resultNode.toString());
+            ti.setStatus(status);
+            ti.setMessage(message);
+            ti.setResult(tir);
+        } else if (paymentType.equals(PaymentType.CREDIT)) {
+            TradeInfoResultParsable<TradeInfoResult.Credit> parser = ResultParserFactory.newParser(paymentType);
+            TradeInfoResult.Credit tir = parser.parse(resultNode.toString());
+            ti.setStatus(status);
+            ti.setMessage(message);
+            ti.setResult(tir);
+        }
         return ti;
     }
 

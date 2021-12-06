@@ -3,7 +3,6 @@ package idv.rennnhong.neweb.response.parser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import idv.rennnhong.neweb.response.TradeInfoResult;
-import idv.rennnhong.neweb.response.exception.FieldNotFoundException;
 
 import java.util.Optional;
 
@@ -48,17 +47,27 @@ public abstract class AbstractResultParser<T extends TradeInfoResult> implements
 
     protected String getText(String fieldName) {
         JsonNode field = searchField(fieldName);
+        if (field == null) {
+            return "";
+        }
         return field.asText();
     }
 
     protected Integer getInt(String fieldName) {
         JsonNode field = searchField(fieldName);
-        return field.asInt();
+        if (field == null) {
+            return 0;
+        } else {
+            return field.asInt();
+        }
     }
 
     private JsonNode searchField(String fieldName) {
         Optional<JsonNode> op = Optional.ofNullable(this.jsonNode.get(fieldName));
-        JsonNode field = op.orElseThrow(() -> new FieldNotFoundException(fieldName));
+        JsonNode field = null;
+        if (op.isPresent()) {
+            field = op.get();
+        }
         return field;
     }
 
