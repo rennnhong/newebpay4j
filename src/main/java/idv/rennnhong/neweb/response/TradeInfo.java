@@ -1,10 +1,10 @@
 package idv.rennnhong.neweb.response;
 
-public class TradeInfo {
+public class TradeInfo<T extends TradeInfoResult> {
 
     private String status;
     private String message;
-    private TradeInfoResult result;
+    private T result;
 
     public String getStatus() {
         return status;
@@ -24,11 +24,11 @@ public class TradeInfo {
         return this;
     }
 
-    public TradeInfoResult getResult() {
+    public T getResult() {
         return result;
     }
 
-    public TradeInfo setResult(TradeInfoResult result) {
+    public TradeInfo<T> setResult(T result) {
         this.result = result;
         return this;
     }

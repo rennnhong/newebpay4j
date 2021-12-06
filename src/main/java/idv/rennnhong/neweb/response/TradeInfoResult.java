@@ -154,7 +154,7 @@ public abstract class TradeInfoResult {
         private float dccAmt;
         private float dccRate;
         private float dccMarkup;
-        private float dccCurrency;
+        private String dccCurrency;
 
         public Credit() {
             super(PaymentType.CREDIT);
@@ -304,12 +304,12 @@ public abstract class TradeInfoResult {
             return this;
         }
 
-        public float getDccCurrency() {
+        public String getDccCurrency() {
             return dccCurrency;
         }
 
 
-        public Credit setDccCurrency(float dccCurrency) {
+        public Credit setDccCurrency(String dccCurrency) {
             this.dccCurrency = dccCurrency;
             return this;
         }

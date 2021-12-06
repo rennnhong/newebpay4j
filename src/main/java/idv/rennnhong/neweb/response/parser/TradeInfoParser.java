@@ -30,7 +30,7 @@ public class TradeInfoParser implements TradeInfoParsable {
      * @return
      * @throws Exception
      */
-    public TradeInfo parse(String tradeInfoAES) throws Exception {
+    public <T extends TradeInfoResult> TradeInfo<T> parse(String tradeInfoAES) throws Exception {
         /*解析後為tradeInfo內容(json/string)*/
         String tradeInfo = AES.decrypt(tradeInfoAES, merchantKey, merchantIv);
         ObjectMapper om = new ObjectMapper();
@@ -45,19 +45,12 @@ public class TradeInfoParser implements TradeInfoParsable {
         PaymentType paymentType = PaymentType.valueOfCode(paymentTypeCode);
         TradeInfo ti = new TradeInfo();
 //      /*透過paymentType選擇解析器*/
-        if (paymentType.equals(PaymentType.WEBATM)) {
-            TradeInfoResultParsable<TradeInfoResult.ATM> parser = ResultParserFactory.newParser(paymentType);
-            TradeInfoResult.ATM tir = parser.parse(resultNode.toString());
-            ti.setStatus(status);
-            ti.setMessage(message);
-            ti.setResult(tir);
-        } else if (paymentType.equals(PaymentType.CREDIT)) {
-            TradeInfoResultParsable<TradeInfoResult.Credit> parser = ResultParserFactory.newParser(paymentType);
-            TradeInfoResult.Credit tir = parser.parse(resultNode.toString());
-            ti.setStatus(status);
-            ti.setMessage(message);
-            ti.setResult(tir);
-        }
+        TradeInfoResultParsable<T> parser = ResultParserFactory.<T>newParser(paymentType);
+        T tir = parser.parse(resultNode.toString());
+        ti.setStatus(status);
+        ti.setMessage(message);
+        ti.setResult(tir);
+
         return ti;
     }
 

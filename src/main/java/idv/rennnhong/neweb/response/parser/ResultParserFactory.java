@@ -4,16 +4,25 @@ import idv.rennnhong.neweb.PaymentType;
 import idv.rennnhong.neweb.response.TradeInfoResult;
 import idv.rennnhong.neweb.response.exception.NotImplementedException;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ResultParserFactory {
 
+    public static Map<PaymentType, TradeInfoResultParsable> parserMap = new HashMap<>();
+
+    static {
+        parserMap.put(PaymentType.WEBATM, new AtmResultParser());
+        parserMap.put(PaymentType.CREDIT, new CreditResultParser());
+    }
+
     public static <T extends TradeInfoResult> TradeInfoResultParsable newParser(PaymentType paymentType) {
-        switch (paymentType) {
-            case WEBATM:
-                return new AtmResultParser();
-            case CREDIT:
-                return new CreditResultParser();
-            default:
-                throw new NotImplementedException(paymentType);
+        TradeInfoResultParsable parser = parserMap.get(paymentType);
+
+        if (parser == null) {
+            throw new NotImplementedException(paymentType);
         }
+
+        return parser;
     }
 }

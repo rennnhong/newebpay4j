@@ -40,7 +40,7 @@ public class CreditResultParser extends AbstractResultParser<TradeInfoResult.Cre
         tradeInfoResult.setDccAmt(getInt(FIELD_DCC_Amt));
         tradeInfoResult.setDccRate(getInt(FIELD_DCC_Rate));
         tradeInfoResult.setDccMarkup(getInt(FIELD_DCC_Markup));
-        tradeInfoResult.setDccCurrency(Float.parseFloat(getText(FIELD_DCC_Currency)));
+        tradeInfoResult.setDccCurrency(getText(FIELD_DCC_Currency));
         tradeInfoResult.setDccCurrencyCode(getInt(FIELD_DCC_Currency_Code));
     }
 }
