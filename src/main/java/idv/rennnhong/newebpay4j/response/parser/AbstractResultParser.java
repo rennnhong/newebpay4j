@@ -3,10 +3,15 @@ package idv.rennnhong.newebpay4j.response.parser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import idv.rennnhong.newebpay4j.response.TradeInfoResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.text.MessageFormat;
 import java.util.Optional;
 
 public abstract class AbstractResultParser<T extends TradeInfoResult> implements TradeInfoResultParsable<T> {
+
+    Logger logger = LoggerFactory.getLogger(AbstractResultParser.class);
 
     final private T tradeInfoResult;
 
@@ -46,29 +51,22 @@ public abstract class AbstractResultParser<T extends TradeInfoResult> implements
     public abstract void parse(T tradeInfoResult);
 
     protected String getText(String fieldName) {
-        JsonNode field = searchField(fieldName);
-        if (field == null) {
-            return "";
-        }
-        return field.asText();
+        Optional<JsonNode> jsonNode = searchField(fieldName);
+        return jsonNode.isPresent() ? jsonNode.get().asText() : "";
     }
 
     protected Integer getInt(String fieldName) {
-        JsonNode field = searchField(fieldName);
-        if (field == null) {
-            return 0;
-        } else {
-            return field.asInt();
-        }
+        Optional<JsonNode> jsonNode = searchField(fieldName);
+        return jsonNode.isPresent() ? jsonNode.get().asInt() : 0;
     }
 
-    private JsonNode searchField(String fieldName) {
+    private Optional<JsonNode> searchField(String fieldName) {
         Optional<JsonNode> op = Optional.ofNullable(this.jsonNode.get(fieldName));
-        JsonNode field = null;
         if (op.isPresent()) {
-            field = op.get();
+            return op;
         }
-        return field;
+        logger.warn(MessageFormat.format("the field [{0}] not found!", fieldName));
+        return Optional.empty();
     }
 
 }
