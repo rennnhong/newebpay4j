@@ -6,7 +6,7 @@ import java.text.MessageFormat;
 
 public class NotImplementedException extends RuntimeException {
     public NotImplementedException(PaymentType paymentType) {
-        super(MessageFormat.format("the paymentType parser:{0}-{1} hasn't implemented",
+        super(MessageFormat.format("the paymentType parser:{0}-{1} has not implemented",
                 paymentType.getCode(),
                 paymentType.getDescription()));
     }

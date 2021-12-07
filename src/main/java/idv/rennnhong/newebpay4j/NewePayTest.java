@@ -33,6 +33,10 @@ public class NewePayTest {
 //        response.setVersion("1.6");
 
 
+        PaymentRegistry registry = new PaymentRegisterHandler();
+        registry.register(PaymentType.WEBATM);
+        registry.register(PaymentType.CREDIT);
+
         TradeInfoParser tradeInfoParser = new TradeInfoParser(merchantId, key, iv);
 
         String atmTradeInfo = "ed89508ab14eb56d43236e4351a6f6df13c7f92aafb416f68e5b13c9f75843968be6e2603f23778690cd80a72041275e8348c68c6ab20e464a561c95fbbed225bda8d52f8c364bcec499f9c2fefc2842b0bd2dca74bd8d8e288b6863f90a527c01ac165eaa708c6988a1f50a4ba88e55be1fe9e154e463cd0e9557ec87f29abaf0fd5752dad0f0c09575e40225264fc5dd74a56467b5550837ca470a54be90907fa7ef8a3d6e48471807859b38e6ade2802bffba3d47350ad63f788d004f9d5707e13322aa0be2436a917c81427ffa790ed4cf648a59b8d3c948534e50be22de321d31fe6cbec2559fad79d18f6a92a2f2317f3ab5b5af3b9289ece768a8c512cf7df94b1a02baaf6a26984fde7e6c33bcef3dbf9a06928e3a483ce336d2802abbee38d8b425dae56df476d5b05154c24a7cf955cc6b38b5f70650f9a029fd4ec6f9e96609c4364665afa4b458c4eda3270791a7291fca1f19511bbcdd9dc91a";
