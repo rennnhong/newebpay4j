@@ -1,6 +1,6 @@
-package idv.rennnhong.neweb.response.exception;
+package idv.rennnhong.newebpay4j.response.exception;
 
-import idv.rennnhong.neweb.PaymentType;
+import idv.rennnhong.newebpay4j.PaymentType;
 
 import java.text.MessageFormat;
 

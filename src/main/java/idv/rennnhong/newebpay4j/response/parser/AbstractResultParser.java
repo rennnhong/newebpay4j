@@ -1,8 +1,8 @@
-package idv.rennnhong.neweb.response.parser;
+package idv.rennnhong.newebpay4j.response.parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import idv.rennnhong.neweb.response.TradeInfoResult;
+import idv.rennnhong.newebpay4j.response.TradeInfoResult;
 
 import java.util.Optional;
 

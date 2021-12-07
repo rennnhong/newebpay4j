@@ -1,8 +1,8 @@
-package idv.rennnhong.neweb;
+package idv.rennnhong.newebpay4j;
 
-import idv.rennnhong.neweb.response.TradeInfo;
-import idv.rennnhong.neweb.response.TradeInfoResult;
-import idv.rennnhong.neweb.response.parser.TradeInfoParser;
+import idv.rennnhong.newebpay4j.response.TradeInfo;
+import idv.rennnhong.newebpay4j.response.TradeInfoResult;
+import idv.rennnhong.newebpay4j.response.parser.TradeInfoParser;
 
 public class NewePayTest {
 

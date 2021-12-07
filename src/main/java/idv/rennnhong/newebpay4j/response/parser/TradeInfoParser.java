@@ -1,11 +1,11 @@
-package idv.rennnhong.neweb.response.parser;
+package idv.rennnhong.newebpay4j.response.parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import idv.rennnhong.neweb.PaymentType;
-import idv.rennnhong.neweb.crypto.AES;
-import idv.rennnhong.neweb.response.TradeInfo;
-import idv.rennnhong.neweb.response.TradeInfoResult;
+import idv.rennnhong.newebpay4j.PaymentType;
+import idv.rennnhong.newebpay4j.crypto.AES;
+import idv.rennnhong.newebpay4j.response.TradeInfo;
+import idv.rennnhong.newebpay4j.response.TradeInfoResult;
 
 public class TradeInfoParser implements TradeInfoParsable {
 

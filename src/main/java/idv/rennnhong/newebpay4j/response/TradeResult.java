@@ -1,6 +1,6 @@
-package idv.rennnhong.neweb.response;
+package idv.rennnhong.newebpay4j.response;
 
-import idv.rennnhong.neweb.Trade;
+import idv.rennnhong.newebpay4j.Trade;
 
 public class TradeResult extends Trade {
 

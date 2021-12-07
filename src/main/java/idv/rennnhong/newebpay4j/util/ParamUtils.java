@@ -1,4 +1,4 @@
-package idv.rennnhong.neweb.util;
+package idv.rennnhong.newebpay4j.util;
 
 import org.apache.commons.lang3.StringUtils;
 

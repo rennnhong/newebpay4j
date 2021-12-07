@@ -1,4 +1,4 @@
-package idv.rennnhong.neweb.response.exception;
+package idv.rennnhong.newebpay4j.response.exception;
 
 import java.text.MessageFormat;
 

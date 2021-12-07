@@ -1,7 +1,7 @@
-package idv.rennnhong.neweb;
+package idv.rennnhong.newebpay4j;
 
-import idv.rennnhong.neweb.crypto.AES;
-import idv.rennnhong.neweb.util.ParamUtils;
+import idv.rennnhong.newebpay4j.crypto.AES;
+import idv.rennnhong.newebpay4j.util.ParamUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

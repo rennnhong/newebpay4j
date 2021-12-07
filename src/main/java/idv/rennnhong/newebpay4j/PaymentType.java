@@ -1,4 +1,4 @@
-package idv.rennnhong.neweb;
+package idv.rennnhong.newebpay4j;
 
 public enum PaymentType {
     CREDIT("CREDIT", "信用卡"),

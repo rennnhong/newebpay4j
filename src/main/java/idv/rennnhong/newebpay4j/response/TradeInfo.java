@@ -1,4 +1,4 @@
-package idv.rennnhong.neweb.response;
+package idv.rennnhong.newebpay4j.response;
 
 public class TradeInfo<T extends TradeInfoResult> {
 

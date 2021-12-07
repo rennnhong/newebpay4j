@@ -1,8 +1,8 @@
-package idv.rennnhong.neweb.response.parser;
+package idv.rennnhong.newebpay4j.response.parser;
 
-import idv.rennnhong.neweb.PaymentType;
-import idv.rennnhong.neweb.response.TradeInfoResult;
-import idv.rennnhong.neweb.response.exception.NotImplementedException;
+import idv.rennnhong.newebpay4j.PaymentType;
+import idv.rennnhong.newebpay4j.response.TradeInfoResult;
+import idv.rennnhong.newebpay4j.response.exception.NotImplementedException;
 
 import java.util.HashMap;
 import java.util.Map;

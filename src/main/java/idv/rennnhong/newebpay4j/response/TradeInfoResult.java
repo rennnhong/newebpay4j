@@ -1,6 +1,6 @@
-package idv.rennnhong.neweb.response;
+package idv.rennnhong.newebpay4j.response;
 
-import idv.rennnhong.neweb.PaymentType;
+import idv.rennnhong.newebpay4j.PaymentType;
 
 public abstract class TradeInfoResult {
 
