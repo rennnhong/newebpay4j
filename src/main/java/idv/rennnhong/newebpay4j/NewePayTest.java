@@ -43,7 +43,20 @@ public class NewePayTest {
 
         String creditTradeInfo = "ed89508ab14eb56d43236e4351a6f6df13c7f92aafb416f68e5b13c9f7584396a5376456599167e3cc64178cacbb9b20066bee714934dde7d02dc762e013d048f7e854249872219567027d53a8e33736b92fa9828fbef458bde7151b3f0390986d9327da35425b5331b9f767d8d06f7aff5533c7507e3fa2ad618d1abe49785e0c79260950fcc2fbfb770875b1e9c2d69feaf65bb56d4453fd93065bea5a04cb3546f428c09b1add46d2cbed8115cdd7b391c77d810ba3d58861c341f57afab699774f49d283bb0f2778092887c00d8f9b2d2ff3bad97aa5c69c4477b33038b8578a0793360fc3ef13e26fd4c8ce51986bb170f1e5c70c359f6cb7226a2510b0bae387f989507b51d7c506238b32f0458bc1b2023f6ae0430164591a3501f604efd678e4f356212aeb67576cc24c89710fd1b0f4c278ca184dc64dad11895a6c186758f5fbd5da9d0ac33bf8b09babb07cf1f49071dd2d9f40ca4ad4e4fe6a2cbe76ca3c66d01a15ff7a4c9c958a125e78beb45287ce8b96669ada7893da0cae24b62a57a69b2859d74069300a68c303259bfb4a9a9536d23003a68c2d865cecb48f3c1344eebad278a7d528fc227456c7a046739f3549b50d31d288dba907cd93d0e6dd573ccae51772b60eb6b563af57ebea941e119405edb3c6ec60b1426d";
 
-        TradeInfo<TradeInfoResult.Credit> tradeInfo = tradeInfoParser.parse(creditTradeInfo);
+        TradeInfo tradeInfo = tradeInfoParser.parse(atmTradeInfo);
+        TradeInfoResult result = tradeInfo.getResult();
+
+        switch (result.getPaymentType()) {
+            case WEBATM:
+                TradeInfoResult.ATM atm = result.toConcreteType(TradeInfoResult.ATM.class);
+                //handle atm......
+                break;
+            case CREDIT:
+                TradeInfoResult.Credit credit = result.toConcreteType(TradeInfoResult.Credit.class);
+                //handle credit......
+                break;
+            default:
+        }
 
         System.out.println(tradeInfo);
 

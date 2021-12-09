@@ -19,6 +19,10 @@ public abstract class TradeInfoResult {
         this.paymentType = paymentType;
     }
 
+    public <T extends TradeInfoResult> T toConcreteType(Class<T> clz) {
+        return clz.cast(this);
+    }
+
     public String getMerchantID() {
         return merchantID;
     }

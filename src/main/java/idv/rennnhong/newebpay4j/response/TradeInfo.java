@@ -1,10 +1,10 @@
 package idv.rennnhong.newebpay4j.response;
 
-public class TradeInfo<T extends TradeInfoResult> {
+public class TradeInfo {
 
     private String status;
     private String message;
-    private T result;
+    private TradeInfoResult result;
 
     public String getStatus() {
         return status;
@@ -24,11 +24,11 @@ public class TradeInfo<T extends TradeInfoResult> {
         return this;
     }
 
-    public T getResult() {
+    public TradeInfoResult getResult() {
         return result;
     }
 
-    public TradeInfo<T> setResult(T result) {
+    public TradeInfo setResult(TradeInfoResult result) {
         this.result = result;
         return this;
     }
