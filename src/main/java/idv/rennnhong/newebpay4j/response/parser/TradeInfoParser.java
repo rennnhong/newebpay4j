@@ -46,10 +46,9 @@ public class TradeInfoParser implements TradeInfoParsable {
         TradeInfo ti = new TradeInfo();
 //      /*透過paymentType選擇解析器*/
         TradeInfoResultParsable parser = ResultParserFactory.newParser(paymentType);
-        parser.parse(resultNode.toString())
         ti.setStatus(status);
         ti.setMessage(message);
-        ti.setResult(tir);
+        ti.setResult(parser.parse(resultNode.toString()));
 
         return ti;
     }
