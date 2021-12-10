@@ -1,15 +1,15 @@
 package idv.rennnhong.newebpay4j;
 
 public enum StoreTypeEnum {
-    SEVEN_ELEVEN("1", "7-11 統一超商"),
-    FAMILY_MART("2", "全家便利商店"),
-    OK("3", "OK 便利商店"),
-    HI_LIFE("4", "萊爾富便利商店");
+    SEVEN_ELEVEN(1, "7-11 統一超商"),
+    FAMILY_MART(2, "全家便利商店"),
+    OK(3, "OK 便利商店"),
+    HI_LIFE(4, "萊爾富便利商店");
 
-    private String code;
+    private Integer code;
     private String description;
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
@@ -17,7 +17,7 @@ public enum StoreTypeEnum {
         return description;
     }
 
-    StoreTypeEnum(String code, String description) {
+    StoreTypeEnum(Integer code, String description) {
         this.code = code;
         this.description = description;
     }
