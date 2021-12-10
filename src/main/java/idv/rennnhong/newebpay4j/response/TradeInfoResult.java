@@ -409,6 +409,42 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     * 超商代碼繳費
+     */
+    public static class CVS extends TradeInfoResult {
+        private String codeNo;
+        private int storeType;
+        private String storeID;
+
+        public CVS() {
+            super(PaymentType.CVS);
+        }
+
+        public CVS setCodeNo(String codeNo) {
+            this.codeNo = codeNo;
+            return this;
+        }
+
+        public CVS setStoreType(int storeType) {
+            this.storeType = storeType;
+            return this;
+        }
+
+        public CVS setStoreID(String storeID) {
+            this.storeID = storeID;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "CVS{" +
+                    "codeNo='" + codeNo + '\'' +
+                    ", storeType=" + storeType +
+                    ", storeID='" + storeID + '\'' +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

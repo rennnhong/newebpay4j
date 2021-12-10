@@ -12,7 +12,8 @@ public enum PaymentType {
     ALIPAY("ALIPAY", "支付寶(跨境支付)"),
     ESUNWALLET("ESUNWALLET", "玉山 Wallet"),
     P2G("P2G", "ezPay 電子錢包"),
-    TAIWANPAY("TAIWANPAY", "台灣 Pay");
+    TAIWANPAY("TAIWANPAY", "台灣 Pay"),
+    CVS("CVS","超商代碼繳費");
 
     private static Map<String, PaymentType> paymentTypeCaches = new HashMap<>();
 
