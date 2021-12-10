@@ -421,14 +421,26 @@ public abstract class TradeInfoResult {
             super(PaymentType.CVS);
         }
 
+        public String getCodeNo() {
+            return codeNo;
+        }
+
         public CVS setCodeNo(String codeNo) {
             this.codeNo = codeNo;
             return this;
         }
 
+        public int getStoreType() {
+            return storeType;
+        }
+
         public CVS setStoreType(int storeType) {
             this.storeType = storeType;
             return this;
+        }
+
+        public String getStoreID() {
+            return storeID;
         }
 
         public CVS setStoreID(String storeID) {
