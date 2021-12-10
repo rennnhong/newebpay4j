@@ -21,7 +21,7 @@ public class CreditResultParser extends AbstractResultParser<TradeInfoResult.Cre
     private static final String FIELD_DCC_Currency = "DCC_Currency";
     private static final String FIELD_DCC_Currency_Code = "DCC_Currency_Code";
     CreditResultParser() {
-        super(new TradeInfoResult.Credit());
+        super(TradeInfoResult.Credit.class);
     }
     @Override
     public void parse(TradeInfoResult.Credit tradeInfoResult) {

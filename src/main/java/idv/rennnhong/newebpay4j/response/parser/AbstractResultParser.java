@@ -13,7 +13,7 @@ public abstract class AbstractResultParser<T extends TradeInfoResult> implements
 
     Logger logger = LoggerFactory.getLogger(AbstractResultParser.class);
 
-    final private T tradeInfoResult;
+    final private Class<T> targetResultType;
 
     protected JsonNode jsonNode;
 
@@ -28,13 +28,14 @@ public abstract class AbstractResultParser<T extends TradeInfoResult> implements
     private static final String FIELD_IP = "IP";
     private static final String FIELD_EscrowBank = "EscrowBank";
 
-    public AbstractResultParser(T tradeInfoResult) {
-        this.tradeInfoResult = tradeInfoResult;
+    public AbstractResultParser(Class<T> targetResultType) {
+        this.targetResultType = targetResultType;
     }
 
     @Override
     public T parse(String content) throws Exception {
         jsonNode = om.readValue(content, JsonNode.class);
+        T tradeInfoResult = targetResultType.newInstance();
         tradeInfoResult.setMerchantID(getText(FIELD_MerchantID));
         tradeInfoResult.setAmt(getInt(FIELD_Amt));
         tradeInfoResult.setTradeNo(getText(FIELD_TradeNo));

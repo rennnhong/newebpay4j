@@ -8,7 +8,7 @@ public class AtmResultParser extends AbstractResultParser<TradeInfoResult.ATM> {
     private static final String FIELD_PayerAccount5Code = "PayerAccount5Code";
 
     AtmResultParser() {
-        super(new TradeInfoResult.ATM());
+        super(TradeInfoResult.ATM.class);
     }
 
     @Override
