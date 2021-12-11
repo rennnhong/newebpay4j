@@ -26,6 +26,7 @@ public class ResultParserFactory {
         parserSupplierMap.put(PaymentType.WEBATM, () -> new AtmResultParser());
         parserSupplierMap.put(PaymentType.CREDIT, () -> new CreditResultParser());
         parserSupplierMap.put(PaymentType.CVSCOM, () -> new CvscomResultParser());
+        parserSupplierMap.put(PaymentType.BARCODE, () -> new BarCodeResultParser());
     }
 
     public static <T extends TradeInfoResult> TradeInfoResultParsable newParser(PaymentType paymentType) {

@@ -59,6 +59,10 @@ public class NewePayTest {
                 TradeInfoResult.CVSCOM cvscom = result.toConcreteType(TradeInfoResult.CVSCOM.class);
                 //handle cvscom......
                 break;
+            case BARCODE:
+                TradeInfoResult.BARCODE barcode = result.toConcreteType(TradeInfoResult.BARCODE.class);
+                //handle barcode......
+                break;
             default:
         }
 

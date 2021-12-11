@@ -202,6 +202,65 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     * 超商條碼繳費
+     */
+    public static class BARCODE extends TradeInfoResult {
+        private String barcode_1;
+        private String barcode_2;
+        private String barcode_3;
+        private String payStore;
+
+        public BARCODE() {
+            super(PaymentType.BARCODE);
+        }
+
+        public String getBarcode_1() {
+            return barcode_1;
+        }
+
+        public BARCODE setBarcode_1(String barcode_1) {
+            barcode_1 = barcode_1;
+            return this;
+        }
+
+        public String getBarcode_2() {
+            return barcode_2;
+        }
+
+        public BARCODE setBarcode_2(String barcode_2) {
+            barcode_2 = barcode_2;
+            return this;
+        }
+
+        public String getBarcode_3() {
+            return barcode_3;
+        }
+
+        public BARCODE setBarcode_3(String barcode_3) {
+            barcode_3 = barcode_3;
+            return this;
+        }
+
+        public String getPayStore() {
+            return payStore;
+        }
+
+        public BARCODE setPayStore(String payStore) {
+            this.payStore = payStore;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "BARCODE{" +
+                    "Barcode_1='" + barcode_1 + '\'' +
+                    ", Barcode_2='" + barcode_2 + '\'' +
+                    ", Barcode_3='" + barcode_3 + '\'' +
+                    ", payStore='" + payStore + '\'' +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數
