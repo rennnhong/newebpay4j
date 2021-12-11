@@ -298,6 +298,43 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     * 玉山 Wallet 回傳參數
+     */
+    public static class EsumWallet extends TradeInfoResult {
+        private int payAmt;
+        private int redDisAmt;
+
+        public EsumWallet() {
+            super(PaymentType.ESUNWALLET);
+        }
+
+        public int getPayAmt() {
+            return payAmt;
+        }
+
+        public EsumWallet setPayAmt(int payAmt) {
+            this.payAmt = payAmt;
+            return this;
+        }
+
+        public int getRedDisAmt() {
+            return redDisAmt;
+        }
+
+        public EsumWallet setRedDisAmt(int redDisAmt) {
+            this.redDisAmt = redDisAmt;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "EsumWallet{" +
+                    "payAmt=" + payAmt +
+                    ", redDisAmt=" + redDisAmt +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

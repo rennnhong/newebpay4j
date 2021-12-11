@@ -67,6 +67,10 @@ public class NewePayTest {
                 TradeInfoResult.AliPay aliPay = result.toConcreteType(TradeInfoResult.AliPay.class);
                 //handle aliPay......
                 break;
+            case ESUNWALLET:
+                TradeInfoResult.EsumWallet esumWallet = result.toConcreteType(TradeInfoResult.EsumWallet.class);
+                //handle esum wallet......
+                break;
             default:
         }
 

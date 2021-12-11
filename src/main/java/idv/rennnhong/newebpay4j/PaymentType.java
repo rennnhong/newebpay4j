@@ -9,7 +9,8 @@ public enum PaymentType {
     WEBATM("WEBATM", "WebATM"),
     CVSCOM("CVSCOM", "超商物流"),
     BARCODE("BARCODE", "超商條碼繳費"),
-    ALIPAY("ALIPAY", "支付寶(跨境支付)");
+    ALIPAY("ALIPAY", "支付寶(跨境支付)"),
+    ESUNWALLET("ESUNWALLET", "玉山 Wallet");
 
     private static Map<String, PaymentType> paymentTypeCaches = new HashMap<>();
 
