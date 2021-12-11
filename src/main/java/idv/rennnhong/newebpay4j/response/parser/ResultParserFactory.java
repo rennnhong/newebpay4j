@@ -29,6 +29,7 @@ public class ResultParserFactory {
         parserSupplierMap.put(PaymentType.BARCODE, () -> new BarCodeResultParser());
         parserSupplierMap.put(PaymentType.ALIPAY, () -> new AliPayResultParser());
         parserSupplierMap.put(PaymentType.ESUNWALLET, () -> new EsumWalletResultParser());
+        parserSupplierMap.put(PaymentType.P2G, () -> new P2gResultParser());
     }
 
     public static <T extends TradeInfoResult> TradeInfoResultParsable newParser(PaymentType paymentType) {

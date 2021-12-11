@@ -335,6 +335,54 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     * ezPay 電子錢包
+     */
+    public static class P2G extends TradeInfoResult {
+        private String p2gTradeNo;
+        private String p2gPaymentType;
+        private int p2gAmt;
+
+        public P2G() {
+            super(PaymentType.P2G);
+        }
+
+        public String getP2gTradeNo() {
+            return p2gTradeNo;
+        }
+
+        public P2G setP2gTradeNo(String p2gTradeNo) {
+            this.p2gTradeNo = p2gTradeNo;
+            return this;
+        }
+
+        public String getP2gPaymentType() {
+            return p2gPaymentType;
+        }
+
+        public P2G setP2gPaymentType(String p2gPaymentType) {
+            this.p2gPaymentType = p2gPaymentType;
+            return this;
+        }
+
+        public int getP2gAmt() {
+            return p2gAmt;
+        }
+
+        public P2G setP2gAmt(int p2gAmt) {
+            this.p2gAmt = p2gAmt;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "P2G{" +
+                    "p2gTradeNo='" + p2gTradeNo + '\'' +
+                    ", p2gPaymentType='" + p2gPaymentType + '\'' +
+                    ", p2gAmt=" + p2gAmt +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

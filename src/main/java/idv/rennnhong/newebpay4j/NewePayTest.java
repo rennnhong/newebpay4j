@@ -71,6 +71,10 @@ public class NewePayTest {
                 TradeInfoResult.EsumWallet esumWallet = result.toConcreteType(TradeInfoResult.EsumWallet.class);
                 //handle esum wallet......
                 break;
+            case P2G:
+                TradeInfoResult.P2G ezPay = result.toConcreteType(TradeInfoResult.P2G.class);
+                //handle ezPay......
+                break;
             default:
         }
 
