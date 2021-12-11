@@ -30,6 +30,7 @@ public class ResultParserFactory {
         parserSupplierMap.put(PaymentType.ALIPAY, () -> new AliPayResultParser());
         parserSupplierMap.put(PaymentType.ESUNWALLET, () -> new EsumWalletResultParser());
         parserSupplierMap.put(PaymentType.P2G, () -> new P2gResultParser());
+        parserSupplierMap.put(PaymentType.TAIWANPAY, () -> new TaiwanPayResultParser());
     }
 
     public static <T extends TradeInfoResult> TradeInfoResultParsable newParser(PaymentType paymentType) {

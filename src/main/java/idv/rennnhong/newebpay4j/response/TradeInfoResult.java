@@ -383,6 +383,32 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     * WEBATM、ATM 繳費回傳參數
+     */
+    public static class TaiwanPay extends TradeInfoResult {
+        private int payAmt;
+
+        public TaiwanPay() {
+            super(PaymentType.TAIWANPAY);
+        }
+
+        public int getPayAmt() {
+            return payAmt;
+        }
+
+        public TaiwanPay setPayAmt(int payAmt) {
+            this.payAmt = payAmt;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "TaiwanPay{" +
+                    "payAmt=" + payAmt +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

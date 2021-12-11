@@ -75,6 +75,10 @@ public class NewePayTest {
                 TradeInfoResult.P2G ezPay = result.toConcreteType(TradeInfoResult.P2G.class);
                 //handle ezPay......
                 break;
+            case TAIWANPAY:
+                TradeInfoResult.TaiwanPay taiwanPay = result.toConcreteType(TradeInfoResult.TaiwanPay.class);
+                //handle Taiwan pay......
+                break;
             default:
         }
 

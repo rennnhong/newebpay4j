@@ -11,7 +11,8 @@ public enum PaymentType {
     BARCODE("BARCODE", "超商條碼繳費"),
     ALIPAY("ALIPAY", "支付寶(跨境支付)"),
     ESUNWALLET("ESUNWALLET", "玉山 Wallet"),
-    P2G("P2G", "ezPay 電子錢包");
+    P2G("P2G", "ezPay 電子錢包"),
+    TAIWANPAY("TAIWANPAY", "台灣 Pay");
 
     private static Map<String, PaymentType> paymentTypeCaches = new HashMap<>();
 
