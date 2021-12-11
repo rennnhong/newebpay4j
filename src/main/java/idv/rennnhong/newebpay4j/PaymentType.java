@@ -8,7 +8,8 @@ public enum PaymentType {
     CREDIT("CREDIT", "信用卡"),
     WEBATM("WEBATM", "WebATM"),
     CVSCOM("CVSCOM", "超商物流"),
-    BARCODE("BARCODE", "超商條碼繳費");
+    BARCODE("BARCODE", "超商條碼繳費"),
+    ALIPAY("ALIPAY", "支付寶(跨境支付)");
 
     private static Map<String, PaymentType> paymentTypeCaches = new HashMap<>();
 

@@ -261,6 +261,43 @@ public abstract class TradeInfoResult {
                     '}' + super.toString();
         }
     }
+    /**
+     *
+     */
+    public static class AliPay extends TradeInfoResult {
+        private String channelID;
+        private String channelNo;
+
+        public AliPay() {
+            super(PaymentType.ALIPAY);
+        }
+
+        public String getChannelID() {
+            return channelID;
+        }
+
+        public AliPay setChannelID(String channelID) {
+            this.channelID = channelID;
+            return this;
+        }
+
+        public String getChannelNo() {
+            return channelNo;
+        }
+
+        public AliPay setChannelNo(String channelNo) {
+            this.channelNo = channelNo;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "AliPay{" +
+                    "channelID='" + channelID + '\'' +
+                    ", channelNo='" + channelNo + '\'' +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

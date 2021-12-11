@@ -63,6 +63,10 @@ public class NewePayTest {
                 TradeInfoResult.BARCODE barcode = result.toConcreteType(TradeInfoResult.BARCODE.class);
                 //handle barcode......
                 break;
+            case ALIPAY:
+                TradeInfoResult.AliPay aliPay = result.toConcreteType(TradeInfoResult.AliPay.class);
+                //handle aliPay......
+                break;
             default:
         }
 
