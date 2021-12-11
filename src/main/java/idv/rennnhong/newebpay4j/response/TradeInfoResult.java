@@ -99,6 +99,109 @@ public abstract class TradeInfoResult {
         return paymentType;
     }
 
+    /**
+     * CVSCOM 超商物流回傳參數
+     */
+    public static class CVSCOM extends TradeInfoResult {
+        private String storeCode;
+        private String storeName;
+        private String storeType;
+        private String storeAddr;
+        private int tradeType;
+        private String cvscomName;
+        private String cvscomPhone;
+        private String lgsNo;
+
+        public CVSCOM() {
+            super(PaymentType.CVSCOM);
+        }
+
+        public String getStoreCode() {
+            return storeCode;
+        }
+
+        public CVSCOM setStoreCode(String storeCode) {
+            this.storeCode = storeCode;
+            return this;
+        }
+
+        public String getStoreName() {
+            return storeName;
+        }
+
+        public CVSCOM setStoreName(String storeName) {
+            this.storeName = storeName;
+            return this;
+        }
+
+        public String getStoreType() {
+            return storeType;
+        }
+
+        public CVSCOM setStoreType(String storeType) {
+            this.storeType = storeType;
+            return this;
+        }
+
+        public String getStoreAddr() {
+            return storeAddr;
+        }
+
+        public CVSCOM setStoreAddr(String storeAddr) {
+            this.storeAddr = storeAddr;
+            return this;
+        }
+
+        public int getTradeType() {
+            return tradeType;
+        }
+
+        public CVSCOM setTradeType(int tradeType) {
+            this.tradeType = tradeType;
+            return this;
+        }
+
+        public String getCvscomName() {
+            return cvscomName;
+        }
+
+        public CVSCOM setCvscomName(String cvscomName) {
+            this.cvscomName = cvscomName;
+            return this;
+        }
+
+        public String getCvscomPhone() {
+            return cvscomPhone;
+        }
+
+        public CVSCOM setCvscomPhone(String cvscomPhone) {
+            this.cvscomPhone = cvscomPhone;
+            return this;
+        }
+
+        public String getLgsNo() {
+            return lgsNo;
+        }
+
+        public CVSCOM setLgsNo(String lgsNo) {
+            this.lgsNo = lgsNo;
+            return this;
+        }
+
+        @Override
+        public String toString() {
+            return "CVSCOM{" +
+                    "storeCode='" + storeCode + '\'' +
+                    ", storeName='" + storeName + '\'' +
+                    ", storeType='" + storeType + '\'' +
+                    ", storeAddr='" + storeAddr + '\'' +
+                    ", tradeType=" + tradeType +
+                    ", cvscomName='" + cvscomName + '\'' +
+                    ", cvscomPhone='" + cvscomPhone + '\'' +
+                    ", lgsNo='" + lgsNo + '\'' +
+                    '}' + super.toString();
+        }
+    }
 
     /**
      * WEBATM、ATM 繳費回傳參數

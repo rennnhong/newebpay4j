@@ -6,7 +6,8 @@ import java.util.Optional;
 
 public enum PaymentType {
     CREDIT("CREDIT", "信用卡"),
-    WEBATM("WEBATM", "WebATM");
+    WEBATM("WEBATM", "WebATM"),
+    CVSCOM("CVSCOM", "超商物流");
 
     private static Map<String, PaymentType> paymentTypeCaches = new HashMap<>();
 

@@ -55,6 +55,10 @@ public class NewePayTest {
                 TradeInfoResult.Credit credit = result.toConcreteType(TradeInfoResult.Credit.class);
                 //handle credit......
                 break;
+            case CVSCOM:
+                TradeInfoResult.CVSCOM cvscom = result.toConcreteType(TradeInfoResult.CVSCOM.class);
+                //handle cvscom......
+                break;
             default:
         }
 
